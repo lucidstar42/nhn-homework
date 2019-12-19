@@ -62,3 +62,6 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
+
+### Test ###
+testMysqlConnection.java
