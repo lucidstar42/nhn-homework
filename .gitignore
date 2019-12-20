@@ -65,3 +65,6 @@ buildNumber.properties
 
 ### Test ###
 testMysqlConnection.java
+
+### Properties ###
+*.properties
