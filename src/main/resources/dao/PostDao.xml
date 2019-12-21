@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.PostDao">
-	<insert id="testInsert" parameterType="post">
+<mapper namespace="com.lucidstar42.guestbook.dao.PostDao">
+	<insert id="testInsert" parameterType="Post">
 		insert into post(email, password, content, created_at, modified_at) 
 		values(#{email}, #{password}, #{content}, now(), now())
 	</insert>
