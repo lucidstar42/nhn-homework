@@ -19,15 +19,26 @@ public class testDao {
 	private MySqlPostDao postDao;
 
 	@Test
-	public void test() {
+	public void testInsert() {
 		try {
 			Post post = new Post();
 			
 			postDao.testInsert(
-				post.setEmail("aaa@bbb.ccc")
+				post.setEmail("bbb@bbb.ccc")
 					.setPassword("abcdefg")
-					.setContent("Test Content!!!")
+					.setContent("Test Content222!!!")
 			);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testSelectList() {
+		try {
+			for(Post post : postDao.selectList()) {
+				System.out.println(post.getId() + " " + post.getContent());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,7 @@
 package com.lucidstar42.guestbook.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,11 @@ public class MySqlPostDao implements PostDao {
 	private SqlSession sqlSession;
 	
 	private static final String namespace = "com.lucidstar42.guestbook.dao.PostDao";
+	
+	@Override
+	public List<Post> selectList() throws Exception {
+		return sqlSession.selectList(namespace + ".selectList");
+	}
 	
 	@Override
 	public int testInsert(Post post) throws Exception {
