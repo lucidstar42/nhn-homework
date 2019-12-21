@@ -16,7 +16,7 @@ MAVEN
 - mysql-connector-java 8.0.16
 - mybatis 3.4.6
 - mybatis-spring 1.3.2
-- junit 4.7
+- junit 4.12
 
 SERVER
 - apache tomcat 8.5.50
