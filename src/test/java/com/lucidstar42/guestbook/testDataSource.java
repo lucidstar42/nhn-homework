@@ -1,11 +1,8 @@
 package com.lucidstar42.guestbook;
 
-import static org.junit.Assert.*;
-
 import java.sql.Connection;
 
 import javax.sql.DataSource;
-import javax.inject.Inject;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

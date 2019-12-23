@@ -1,9 +1,5 @@
 package com.lucidstar42.guestbook;
 
-import static org.junit.Assert.*;
-
-import javax.inject.Inject;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
