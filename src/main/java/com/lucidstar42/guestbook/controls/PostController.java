@@ -3,6 +3,7 @@ package com.lucidstar42.guestbook.controls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +35,18 @@ public class PostController {
 	@RequestMapping(value="/guestbook/add", method=RequestMethod.POST)
 	public String addPostPOST(Post post, Model model) throws Exception {
 		service.addPost(post);
+		return "redirect:/guestbook";
+	}
+	
+	@RequestMapping(value="/guestbook/edit/{postId}", method=RequestMethod.GET)
+	public String editPostGET(@PathVariable("postId") int postId, Model model) throws Exception {
+		model.addAttribute("post", service.getPostById(postId));
+		return "EditPost";
+	}
+	
+	@RequestMapping(value="/guestbook/edit", method=RequestMethod.POST)
+	public String editPostPOST(Post post) throws Exception {
+		service.editPost(post);
 		return "redirect:/guestbook";
 	}
 }

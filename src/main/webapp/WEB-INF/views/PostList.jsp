@@ -20,6 +20,7 @@
 			<div>작성시간 : ${post.createdAt}</div>
 			<div>수정시간 : ${post.modifiedAt}</div>
 			<div>내용 : ${post.content}</div>
+			<a href="/guestbook/edit/${post.id}">수정하기</a>
 		</div>
 	</c:forEach>
 </body>

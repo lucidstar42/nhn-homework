@@ -28,7 +28,18 @@ public class MySqlPostDao implements PostDao {
 	}
 
 	@Override
-	public void insert(Post post) throws Exception {
+	public void insertPost(Post post) throws Exception {
 		sqlSession.insert(namespace + ".insertPost", post);
+	}
+
+	@Override
+	public Post selectOne(int id) throws Exception {
+		return sqlSession.selectOne(namespace + ".selectOne", id);
+	}
+
+	@Override
+	public void updatePost(Post post) throws Exception {
+		System.out.println(post.toString());
+		sqlSession.update(namespace + ".updatePost", post);
 	}
 }

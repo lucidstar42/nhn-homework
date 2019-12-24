@@ -24,4 +24,12 @@
 		values(#{email}, #{password}, #{content}, now(), now())
 	</insert>
 	
+	<select id="selectOne" parameterType="int" resultType="Post">
+		select * from post where id=#{id}
+	</select>
+	
+	<update id="updatePost" parameterType="Post">
+		update post set content=#{content}, modified_at=now() where id=#{id}
+	</update>
+	
 </mapper>

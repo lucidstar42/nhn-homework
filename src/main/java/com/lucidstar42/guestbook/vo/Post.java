@@ -63,4 +63,14 @@ public class Post {
 		this.modifiedAt = modifiedAt;
 		return this;
 	}
+	
+	@Override
+	public String toString() {
+		return "ID : " + id 
+				+ "\nEmail : " + email 
+				+ "\nPassword : " + password 
+				+ "\nContent : " + content 
+				+ "\nCreated At : " + createdAt
+				+ "\nModified At : " + modifiedAt;
+	}
 }

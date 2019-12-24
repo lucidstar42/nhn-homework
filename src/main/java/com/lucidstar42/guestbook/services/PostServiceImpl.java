@@ -21,6 +21,16 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public void addPost(Post post) throws Exception {
-		dao.insert(post);
+		dao.insertPost(post);
+	}
+
+	@Override
+	public Post getPostById(int id) throws Exception {
+		return dao.selectOne(id);
+	}
+
+	@Override
+	public void editPost(Post post) throws Exception {
+		dao.updatePost(post);
 	}
 }
