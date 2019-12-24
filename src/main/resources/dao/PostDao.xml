@@ -18,4 +18,10 @@
 	<select id="selectList" resultMap="PostResultMap">
 		select * from post order by created_at desc
 	</select>
+	
+	<insert id="insertPost" parameterType="Post">
+		insert into post(email, password, content, created_at, modified_at) 
+		values(#{email}, #{password}, #{content}, now(), now())
+	</insert>
+	
 </mapper>

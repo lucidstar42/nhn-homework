@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lucidstar42.guestbook.services.PostService;
+import com.lucidstar42.guestbook.vo.Post;
 
 @Controller
 public class PostController {
@@ -23,5 +24,16 @@ public class PostController {
 	public String listPost(Model model) throws Exception {
 		model.addAttribute("posts", service.listAll());
 		return "PostList";
+	}
+	
+	@RequestMapping(value="/guestbook/add", method=RequestMethod.GET)
+	public String addPostGET() throws Exception {
+		return "AddPost";
+	}
+	
+	@RequestMapping(value="/guestbook/add", method=RequestMethod.POST)
+	public String addPostPOST(Post post, Model model) throws Exception {
+		service.addPost(post);
+		return "redirect:/guestbook";
 	}
 }

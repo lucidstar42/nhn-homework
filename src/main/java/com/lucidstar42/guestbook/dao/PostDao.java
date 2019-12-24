@@ -5,6 +5,7 @@ import java.util.List;
 import com.lucidstar42.guestbook.vo.Post;
 
 public interface PostDao {
-	List<Post> selectList() throws Exception;
 	int testInsert(Post post) throws Exception;
+	List<Post> selectList() throws Exception;
+	void insert(Post post) throws Exception;
 }

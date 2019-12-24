@@ -15,15 +15,20 @@ public class MySqlPostDao implements PostDao {
 	private SqlSession sqlSession;
 	
 	private static final String namespace = "com.lucidstar42.guestbook.dao.PostDao";
+
+	@Override
+	public int testInsert(Post post) throws Exception {
+		int count = sqlSession.insert(namespace + ".testInsert", post);
+		return count;
+	}
 	
 	@Override
 	public List<Post> selectList() throws Exception {
 		return sqlSession.selectList(namespace + ".selectList");
 	}
-	
+
 	@Override
-	public int testInsert(Post post) throws Exception {
-		int count = sqlSession.insert(namespace + ".testInsert", post);
-		return count;
+	public void insert(Post post) throws Exception {
+		sqlSession.insert(namespace + ".insertPost", post);
 	}
 }

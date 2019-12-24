@@ -18,5 +18,9 @@ public class PostServiceImpl implements PostService {
 	public List<Post> listAll() throws Exception {
 		return dao.selectList();
 	}
-	
+
+	@Override
+	public void addPost(Post post) throws Exception {
+		dao.insert(post);
+	}
 }
