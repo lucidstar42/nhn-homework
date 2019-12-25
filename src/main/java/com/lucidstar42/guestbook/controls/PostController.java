@@ -1,5 +1,7 @@
 package com.lucidstar42.guestbook.controls;
 
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +36,28 @@ public class PostController {
 	
 	@RequestMapping(value="/guestbook/add", method=RequestMethod.POST)
 	public String addPostPOST(Post post, Model model) throws Exception {
+		Pattern p = Pattern.compile(".+@.+[.].+");
+		
+		if(post.getEmail().isEmpty()) {
+			model.addAttribute("code", "001");
+			return "Error";
+		}
+		
+		if(!p.matcher(post.getEmail()).find()) {
+			model.addAttribute("code", "002");
+			return "Error";
+		}
+		
+		if(post.getPassword().isEmpty()) {
+			model.addAttribute("code", "003");
+			return "Error";
+		}
+		
+		if(post.getContent().isEmpty()) {
+			model.addAttribute("code", "004");
+			return "Error";
+		}
+		
 		service.addPost(post);
 		return "redirect:/guestbook";
 	}
