@@ -69,7 +69,22 @@ public class PostController {
 	}
 	
 	@RequestMapping(value="/guestbook/edit", method=RequestMethod.POST)
-	public String editPostPOST(Post post) throws Exception {
+	public String editPostPOST(Post post, Model model) throws Exception {
+		if(post.getPassword().isEmpty()) {
+			model.addAttribute("code", "011");
+			return "Error";
+		}
+		
+		if(post.getContent().isEmpty()) {
+			model.addAttribute("code", "012");
+			return "Error";
+		}
+		
+		if(!post.getPassword().equals(service.getPostById(post.getId()).getPassword())){
+			model.addAttribute("code", "011");
+			return "Error";
+		}
+		
 		service.editPost(post);
 		return "redirect:/guestbook";
 	}

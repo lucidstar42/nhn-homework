@@ -39,7 +39,6 @@ public class MySqlPostDao implements PostDao {
 
 	@Override
 	public void updatePost(Post post) throws Exception {
-		System.out.println(post.toString());
 		sqlSession.update(namespace + ".updatePost", post);
 	}
 }
