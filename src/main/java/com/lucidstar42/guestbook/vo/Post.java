@@ -1,14 +1,14 @@
 package com.lucidstar42.guestbook.vo;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Post {
 	protected int id;
 	protected String email;
 	protected String password;
 	protected String content;
-	protected Date createdAt;
-	protected Date modifiedAt;
+	protected LocalDateTime createdAt;
+	protected LocalDateTime modifiedAt;
 	
 	public int getId() {
 		return id;
@@ -46,20 +46,20 @@ public class Post {
 		return this;
 	}
 	
-	public Date getCreatedAt() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 	
-	public Post setCreatedAt(Date createdAt) {
+	public Post setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 		return this;
 	}
 	
-	public Date getModifiedAt() {
+	public LocalDateTime getModifiedAt() {
 		return modifiedAt;
 	}
 	
-	public Post setModifiedAt(Date modifiedAt) {
+	public Post setModifiedAt(LocalDateTime modifiedAt) {
 		this.modifiedAt = modifiedAt;
 		return this;
 	}
