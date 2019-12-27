@@ -20,7 +20,7 @@
 	</insert>
 	
 	<select id="selectOne" parameterType="int" resultType="Post">
-		select id, email, content, created_at, modified_at from post where id=#{id}
+		select * from post where id=#{id}
 	</select>
 	
 	<update id="updatePost" parameterType="Post">
